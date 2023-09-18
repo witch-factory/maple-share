@@ -50,6 +50,7 @@ module.exports = {
       'error',
       2
     ],
+    'import/no-extraneous-dependencies': 'off',
     'import/no-named-as-default': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
