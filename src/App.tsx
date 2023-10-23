@@ -7,6 +7,14 @@ function App() {
         분배금 계산기
   </h1> */}
       <AuthForm />
+      <section>
+        <h2>다른 페이지 링크</h2>
+        <ul>
+          <li>
+            <a href='/party-admin'>파티 관리자 페이지</a>
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }

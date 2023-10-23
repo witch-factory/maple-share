@@ -7,17 +7,16 @@ import {
 
 import App from './App.tsx';
 import './index.css';
+import PartyAdminPage from './pages/partyAdmin/index.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: (
-      <App />
-    ),
+    element: <App />,
   },
   {
-    path: '/about',
-    element: <div>about</div>,
+    path: '/party-admin',
+    element: <PartyAdminPage />,
   },
 ]);
 
