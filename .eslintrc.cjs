@@ -45,6 +45,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'jsx-a11y/heading-has-content': 'off', // h1~h6 태그는 반드시 내용을 가져야 한다는 규칙을 완화
     'jsx-a11y/click-events-have-key-events': 'off', // onClick 사용하기 위해서 onKeyUp,onKeyDown,onKeyPress 하나 이상 사용
     'indent':[
       'error',

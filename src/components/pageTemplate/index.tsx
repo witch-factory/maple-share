@@ -1,6 +1,6 @@
 function PageTemplate({ children }: {children: React.ReactNode}) {
   return (
-    <main className='w-full h-screen p-10 flex justify-center bg-center bg-cover bg-zinc-900'>
+    <main className='w-full h-screen flex flex-col justify-center items-center bg-center bg-cover bg-zinc-900'>
       {children}
     </main>
   );
