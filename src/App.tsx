@@ -1,21 +1,40 @@
-import AuthForm from './components/userAuthForm';
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from 'react-router-dom';
+
+import IdInquiryPage from './pages/id-inquiry';
+import LoginPage from './pages/login';
+import MainPage from './pages/main';
+import PwInquiryPage from './pages/pw-inquiry';
+import SignUpPage from './pages/signup';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainPage />,
+  },
+  {
+    path: 'login',
+    element: <LoginPage />,
+  },
+  {
+    path: 'signup',
+    element: <SignUpPage />,
+  },
+  {
+    path: 'id-inquiry',
+    element: <IdInquiryPage />,
+  },
+  {
+    path: 'pw-inquiry',
+    element: <PwInquiryPage />,
+  },
+]);
 
 function App() {
   return (
-    <main className='w-full h-screen p-10 flex justify-center bg-center bg-cover bg-zinc-900'>
-      {/* <h1 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl'>
-        분배금 계산기
-  </h1> */}
-      <AuthForm />
-      <section>
-        <h2>다른 페이지 링크</h2>
-        <ul>
-          <li>
-            <a href='/party-admin'>파티 관리자 페이지</a>
-          </li>
-        </ul>
-      </section>
-    </main>
+    <RouterProvider router={router} />
   );
 }
 
