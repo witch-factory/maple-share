@@ -34,7 +34,7 @@ function LoginPage() {
           <CardContent>
             <div className='grid gap-4 w-full'>
               <form onSubmit={onSubmit}>
-                <div className='grid gap-2'>
+                <div className='grid gap-4'>
                   <LabelledInput
                     id='party'
                     label='파티명'
