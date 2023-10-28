@@ -7,7 +7,7 @@ import IdInquiryPage from './pages/id-inquiry';
 import LoginPage from './pages/login';
 import MainPage from './pages/main';
 import PwInquiryPage from './pages/pw-inquiry';
-import SignUpPage from './pages/signup';
+import RegisterPage from './pages/register';
 
 const router = createBrowserRouter([
   {
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: 'signup',
-    element: <SignUpPage />,
+    path: 'register',
+    element: <RegisterPage />,
   },
   {
     path: 'id-inquiry',

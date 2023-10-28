@@ -30,7 +30,7 @@ function LoginPage() {
             <CardTitle>로그인</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className='grid gap-4 w-80'>
+            <div className='grid gap-4 w-full'>
               <form onSubmit={onSubmit}>
                 <div className='grid gap-2'>
                   <div className='grid gap-1'>

@@ -1,6 +1,6 @@
 import PageTemplate from '@/components/pageTemplate';
 
-function SignUpPage() {
+function RegisterPage() {
   return (
     <PageTemplate>
       <div className='flex flex-col items-center justify-center w-full h-full'>
@@ -10,4 +10,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default RegisterPage;
