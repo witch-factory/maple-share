@@ -8,8 +8,19 @@ import {
   Card, CardContent, CardHeader, CardTitle,
 } from '@/components/ui/card';
 
+type FormInfo={
+  partyName: string;
+  password: string;
+  passwordConfirm: string;
+};
+
 function RegisterPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [formInfo, setFormInfo] = useState<FormInfo>({
+    partyName: '',
+    password: '',
+    passwordConfirm: '',
+  });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,9 +28,16 @@ function RegisterPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      console.log('submit');
-    }, 3000);
-    console.log('submit');
+      console.log(formInfo);
+    }, 1000);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormInfo(prev => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -42,6 +60,8 @@ function RegisterPage() {
                     autoComplete='organization'
                     autoCorrect='off'
                     disabled={isLoading}
+                    value={formInfo.partyName}
+                    onChange={handleChange}
                   />
                   <LabelledInput
                     id='password'
@@ -50,6 +70,8 @@ function RegisterPage() {
                     type='password'
                     autoComplete='current-password'
                     disabled={isLoading}
+                    value={formInfo.password}
+                    onChange={handleChange}
                   />
                   <LabelledInput
                     id='passwordConfirm'
@@ -58,9 +80,11 @@ function RegisterPage() {
                     type='password'
                     autoComplete='current-password'
                     disabled={isLoading}
+                    value={formInfo.passwordConfirm}
+                    onChange={handleChange}
                   />
                   <Button type='submit' disabled={isLoading}>
-                    {isLoading ? '로딩 중...' : '가입'}
+                    {isLoading ? '로딩 중...' : '회원가입'}
                   </Button>
                 </div>
               </form>

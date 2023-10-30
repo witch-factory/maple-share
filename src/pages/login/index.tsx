@@ -11,10 +11,10 @@ import {
   Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from '@/components/ui/card';
 
-interface FormInfo{
+type FormInfo={
   partyName: string;
   password: string;
-}
+};
 
 function LoginPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -29,11 +29,10 @@ function LoginPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      console.log(formInfo);
     }, 1000);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormInfo(prev => ({
       ...prev,
@@ -63,7 +62,7 @@ function LoginPage() {
                     autoCorrect='off'
                     disabled={isLoading}
                     value={formInfo.partyName}
-                    onChange={onChange}
+                    onChange={handleChange}
                   />
                   <LabelledInput
                     id='password'
@@ -73,10 +72,10 @@ function LoginPage() {
                     autoComplete='current-password'
                     disabled={isLoading}
                     value={formInfo.password}
-                    onChange={onChange}
+                    onChange={handleChange}
                   />
                   <Button type='submit' disabled={isLoading} className='w-full'>
-                    {isLoading ? '로딩 중...' : '입장'}
+                    {isLoading ? '로딩 중...' : '가입'}
                   </Button>
                 </div>
               </form>
