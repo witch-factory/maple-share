@@ -25,8 +25,8 @@ function RegisterPage() {
   return (
     <PageTemplate>
       <CardBox>
-        <Card className='w-[90%]'>
-          <CardHeader>
+        <Card className='w-[90%] mx-auto'>
+          <CardHeader className='space-y-1'>
             <CardTitle>회원가입</CardTitle>
           </CardHeader>
           <CardContent>
@@ -34,7 +34,7 @@ function RegisterPage() {
               <form onSubmit={onSubmit}>
                 <div className='grid gap-4'>
                   <LabelledInput
-                    id='party'
+                    id='partyName'
                     label='파티명'
                     placeholder='파티명'
                     type='text'

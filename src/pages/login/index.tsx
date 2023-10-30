@@ -8,7 +8,7 @@ import GoogleLoginButton from '@/components/socialLoginButton/google';
 import KakaoLoginButton from '@/components/socialLoginButton/kakao';
 import { Button } from '@/components/ui/button';
 import {
-  Card, CardContent, CardHeader, CardTitle,
+  Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from '@/components/ui/card';
 
 function LoginPage() {
@@ -27,14 +27,15 @@ function LoginPage() {
   return (
     <PageTemplate>
       <CardBox>
-        <Card className='w-[90%]'>
-          <CardHeader>
-            <CardTitle>로그인</CardTitle>
+        <Card className='w-[90%] mx-auto'>
+          <CardHeader className='space-y-1'>
+            <CardTitle className='text-2xl font-bold'>로그인</CardTitle>
+            <CardDescription>파티명과 비밀번호를 입력해 주세요.</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className='grid gap-4 w-full'>
+            <div className='space-y-4 w-full'>
               <form onSubmit={onSubmit}>
-                <div className='grid gap-4'>
+                <div className='space-y-4'>
                   <LabelledInput
                     id='party'
                     label='파티명'
@@ -53,7 +54,7 @@ function LoginPage() {
                     autoComplete='current-password'
                     disabled={isLoading}
                   />
-                  <Button type='submit' disabled={isLoading}>
+                  <Button type='submit' disabled={isLoading} className='w-full'>
                     {isLoading ? '로딩 중...' : '입장'}
                   </Button>
                 </div>
