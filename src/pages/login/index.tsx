@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import CardBox from '@/components/cardBox';
 import LabelledInput from '@/components/labelledInput';
@@ -63,6 +64,7 @@ function LoginPage() {
                     disabled={isLoading}
                     value={formInfo.partyName}
                     onChange={handleChange}
+                    required
                   />
                   <LabelledInput
                     id='password'
@@ -73,16 +75,23 @@ function LoginPage() {
                     disabled={isLoading}
                     value={formInfo.password}
                     onChange={handleChange}
+                    required
                   />
                   <Button type='submit' disabled={isLoading} className='w-full'>
-                    {isLoading ? '로딩 중...' : '가입'}
+                    {isLoading ? '로딩 중...' : '로그인'}
                   </Button>
                 </div>
               </form>
+              <Button className='w-full bg-green-500 text-white' type='button'>
+                <Link className='inline-block text-sm no-underline' to='/register'>
+                  회원가입
+                </Link>
+              </Button>
               <Separator text='소셜 로그인' />
 
               <GoogleLoginButton />
               <KakaoLoginButton />
+
             </div>
           </CardContent>
         </Card>

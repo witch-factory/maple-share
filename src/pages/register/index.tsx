@@ -5,7 +5,7 @@ import LabelledInput from '@/components/labelledInput';
 import PageTemplate from '@/components/pageTemplate';
 import { Button } from '@/components/ui/button';
 import {
-  Card, CardContent, CardHeader, CardTitle,
+  Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from '@/components/ui/card';
 
 type FormInfo={
@@ -45,7 +45,8 @@ function RegisterPage() {
       <CardBox>
         <Card className='w-[90%] mx-auto'>
           <CardHeader className='space-y-1'>
-            <CardTitle>회원가입</CardTitle>
+            <CardTitle>파티 만들기</CardTitle>
+            <CardDescription>새로운 파티의 정보를 입력해 주세요.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className='grid gap-4 w-full'>
@@ -84,7 +85,7 @@ function RegisterPage() {
                     onChange={handleChange}
                   />
                   <Button type='submit' disabled={isLoading}>
-                    {isLoading ? '로딩 중...' : '회원가입'}
+                    {isLoading ? '로딩 중...' : '파티 만들기'}
                   </Button>
                 </div>
               </form>
