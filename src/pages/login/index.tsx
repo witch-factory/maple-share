@@ -78,20 +78,32 @@ function LoginPage() {
                     required
                   />
                   <Button type='submit' disabled={isLoading} className='w-full'>
-                    {isLoading ? '로딩 중...' : '로그인'}
+                    {isLoading ? '로딩 중...' : '입장'}
                   </Button>
                 </div>
               </form>
-              <Button className='w-full bg-green-500 text-white' type='button'>
+              <Button className='w-full bg-zinc-500 text-white' type='button'>
                 <Link className='inline-block text-sm no-underline' to='/register'>
-                  회원가입
+                  파티 만들기
                 </Link>
               </Button>
               <Separator text='소셜 로그인' />
-
               <GoogleLoginButton />
               <KakaoLoginButton />
 
+              <Separator text='아이디/비밀번호 찾기' />
+              <div className='w-full flex flex-row space-x-4'>
+                <Button className='w-full text-white p-0' type='button'>
+                  <Link className='flex w-full h-full text-sm no-underline justify-center items-center' to='/id-inquiry'>
+                    파티명 찾기
+                  </Link>
+                </Button>
+                <Button className='w-full text-white p-0' type='button'>
+                  <Link className='flex w-full h-full text-sm no-underline justify-center items-center' to='/pw-inquiry'>
+                    비밀번호 찾기
+                  </Link>
+                </Button>
+              </div>
             </div>
           </CardContent>
         </Card>

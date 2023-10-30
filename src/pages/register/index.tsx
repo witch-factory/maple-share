@@ -12,6 +12,7 @@ type FormInfo={
   partyName: string;
   password: string;
   passwordConfirm: string;
+  email: string;
 };
 
 function RegisterPage() {
@@ -20,6 +21,7 @@ function RegisterPage() {
     partyName: '',
     password: '',
     passwordConfirm: '',
+    email: '',
   });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -63,6 +65,7 @@ function RegisterPage() {
                     disabled={isLoading}
                     value={formInfo.partyName}
                     onChange={handleChange}
+                    required
                   />
                   <LabelledInput
                     id='password'
@@ -73,6 +76,7 @@ function RegisterPage() {
                     disabled={isLoading}
                     value={formInfo.password}
                     onChange={handleChange}
+                    required
                   />
                   <LabelledInput
                     id='passwordConfirm'
@@ -83,6 +87,20 @@ function RegisterPage() {
                     disabled={isLoading}
                     value={formInfo.passwordConfirm}
                     onChange={handleChange}
+                    required
+                  />
+                  <LabelledInput
+                    id='email'
+                    label='이메일'
+                    placeholder='이메일'
+                    type='email'
+                    autoCapitalize='none'
+                    autoComplete='email'
+                    autoCorrect='off'
+                    disabled={isLoading}
+                    value={formInfo.email}
+                    onChange={handleChange}
+                    required
                   />
                   <Button type='submit' disabled={isLoading}>
                     {isLoading ? '로딩 중...' : '파티 만들기'}
