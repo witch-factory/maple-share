@@ -11,8 +11,17 @@ import {
   Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from '@/components/ui/card';
 
+interface FormInfo{
+  partyName: string;
+  password: string;
+}
+
 function LoginPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [formInfo, setFormInfo] = useState<FormInfo>({
+    partyName: '',
+    password: '',
+  });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,8 +29,16 @@ function LoginPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      console.log('submit');
-    }, 3000);
+      console.log(formInfo);
+    }, 1000);
+  };
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormInfo(prev => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   return (
@@ -37,7 +54,7 @@ function LoginPage() {
               <form onSubmit={onSubmit}>
                 <div className='space-y-4'>
                   <LabelledInput
-                    id='party'
+                    id='partyName'
                     label='파티명'
                     placeholder='파티명'
                     type='text'
@@ -45,6 +62,8 @@ function LoginPage() {
                     autoComplete='organization'
                     autoCorrect='off'
                     disabled={isLoading}
+                    value={formInfo.partyName}
+                    onChange={onChange}
                   />
                   <LabelledInput
                     id='password'
@@ -53,6 +72,8 @@ function LoginPage() {
                     type='password'
                     autoComplete='current-password'
                     disabled={isLoading}
+                    value={formInfo.password}
+                    onChange={onChange}
                   />
                   <Button type='submit' disabled={isLoading} className='w-full'>
                     {isLoading ? '로딩 중...' : '입장'}
