@@ -28,9 +28,10 @@ function LoginPage() {
     e.preventDefault();
     setIsLoading(true);
 
-    setTimeout(() => {
+    fetch(`api/login?partyName=${formInfo.partyName}&password=${formInfo.password}`).then(res => res.json()).then(res => {
+      console.log(res);
       setIsLoading(false);
-    }, 1000);
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
