@@ -24,11 +24,11 @@ function LoginPage() {
     password: '',
   });
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
-    fetch(`api/login?partyName=${formInfo.partyName}&password=${formInfo.password}`).then(res => res.json()).then(res => {
+    await fetch(`api/login?partyName=${formInfo.partyName}&password=${formInfo.password}`).then(res => res.json()).then(res => {
       console.log(res);
       setIsLoading(false);
     });
