@@ -7,18 +7,12 @@ import { Button } from '@/components/ui/button';
 import {
   Card, CardContent, CardHeader, CardTitle, CardDescription,
 } from '@/components/ui/card';
-
-type FormInfo={
-  partyName: string;
-  password: string;
-  passwordConfirm: string;
-  email: string;
-};
+import { RegisterInfo } from '@/types';
 
 function RegisterPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [formInfo, setFormInfo] = useState<FormInfo>({
-    partyName: '',
+  const [formInfo, setFormInfo] = useState<RegisterInfo>({
+    userName: '',
     password: '',
     passwordConfirm: '',
     email: '',
@@ -47,23 +41,23 @@ function RegisterPage() {
       <CardBox>
         <Card className='w-[90%] mx-auto'>
           <CardHeader className='space-y-1'>
-            <CardTitle>파티 만들기</CardTitle>
-            <CardDescription>새로운 파티의 정보를 입력해 주세요.</CardDescription>
+            <CardTitle>가입하기</CardTitle>
+            <CardDescription>가입에 필요한 정보를 입력해 주세요.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className='grid gap-4 w-full'>
               <form onSubmit={onSubmit}>
                 <div className='grid gap-4'>
                   <LabelledInput
-                    id='partyName'
-                    label='파티명'
-                    placeholder='파티명'
+                    id='userName'
+                    label='사용자명'
+                    placeholder='라라'
                     type='text'
                     autoCapitalize='none'
                     autoComplete='organization'
                     autoCorrect='off'
                     disabled={isLoading}
-                    value={formInfo.partyName}
+                    value={formInfo.userName}
                     onChange={handleChange}
                     required
                   />

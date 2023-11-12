@@ -4,16 +4,16 @@ const LoginHandlers = [
   http.get('/api/login', ({ request }) => {
     const url = new URL(request.url);
 
-    const partyName = url.searchParams.get('partyName');
+    const userName = url.searchParams.get('userName');
     const password = url.searchParams.get('password');
 
-    if (!partyName || !password) {
+    if (!userName || !password) {
       return new HttpResponse(null, { status: 404 });
     }
 
     return new HttpResponse(
       JSON.stringify({
-        partyName,
+        userName,
         password,
       }),
     );

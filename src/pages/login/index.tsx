@@ -15,16 +15,12 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/card';
-
-type FormInfo = {
-  partyName: string;
-  password: string;
-};
+import { LoginInfo } from '@/types';
 
 function LoginPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [formInfo, setFormInfo] = useState<FormInfo>({
-    partyName: '',
+  const [formInfo, setFormInfo] = useState<LoginInfo>({
+    userName: '',
     password: '',
   });
   const navigate = useNavigate();
@@ -34,17 +30,17 @@ function LoginPage() {
     setIsLoading(true);
 
     await fetch(
-      `api/login?partyName=${formInfo.partyName}&password=${formInfo.password}`,
+      `api/login?userName=${formInfo.userName}&password=${formInfo.password}`,
     )
       .then(res => {
         if (!res.ok) {
           throw new Error('Network response was not ok');
         }
-        return res.json() as Promise<FormInfo>;
+        return res.json() as Promise<LoginInfo>;
       })
       .then(res => {
         setIsLoading(false);
-        if (res.partyName === formInfo.partyName) {
+        if (res.userName === formInfo.userName) {
           navigate('/');
         }
       });
@@ -65,7 +61,7 @@ function LoginPage() {
           <CardHeader className='space-y-1'>
             <CardTitle className='text-2xl font-bold'>로그인</CardTitle>
             <CardDescription>
-              파티명과 비밀번호를 입력해 주세요.
+              사용자명과 비밀번호를 입력해 주세요.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -73,15 +69,15 @@ function LoginPage() {
               <form onSubmit={onSubmit}>
                 <div className='space-y-4'>
                   <LabelledInput
-                    id='partyName'
-                    label='파티명'
-                    placeholder='파티명'
+                    id='userName'
+                    label='사용자명'
+                    placeholder='라라'
                     type='text'
                     autoCapitalize='none'
                     autoComplete='organization'
                     autoCorrect='off'
                     disabled={isLoading}
-                    value={formInfo.partyName}
+                    value={formInfo.userName}
                     onChange={handleChange}
                     required
                   />
