@@ -24,7 +24,6 @@ function RegisterPage() {
 
     setTimeout(() => {
       setIsLoading(false);
-      console.log(formInfo);
     }, 1000);
   };
 
