@@ -44,7 +44,7 @@ function PwInquiryPage() {
         <Card className='w-[90%] mx-auto'>
           <CardHeader className='space-y-1'>
             <CardTitle>비밀번호 찾기</CardTitle>
-            <CardDescription>파티 생성 시 입력한 이메일을 통해 비밀번호를 찾아 드립니다.</CardDescription>
+            <CardDescription>계정 생성 시 입력한 이메일을 통해 비밀번호를 찾아 드립니다.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className='grid gap-4 w-full'>
@@ -52,8 +52,8 @@ function PwInquiryPage() {
                 <div className='grid gap-4'>
                   <LabelledInput
                     id='partyName'
-                    label='파티명'
-                    placeholder='파티명'
+                    label='사용자명'
+                    placeholder='라라'
                     type='text'
                     autoCapitalize='none'
                     autoComplete='organization'

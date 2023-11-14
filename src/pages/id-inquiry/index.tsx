@@ -41,8 +41,8 @@ function IdInquiryPage() {
       <CardBox>
         <Card className='w-[90%] mx-auto'>
           <CardHeader className='space-y-1'>
-            <CardTitle>파티명 찾기</CardTitle>
-            <CardDescription>파티 생성 시 입력한 이메일을 통해 파티명을 찾아 드립니다.</CardDescription>
+            <CardTitle>사용자명 찾기</CardTitle>
+            <CardDescription>계정 생성 시 입력한 이메일을 통해 사용자명을 찾아 드립니다.</CardDescription>
           </CardHeader>
           <CardContent>
             <div className='grid gap-4 w-full'>
@@ -62,7 +62,7 @@ function IdInquiryPage() {
                     required
                   />
                   <Button type='submit' disabled={isLoading}>
-                    {isLoading ? '로딩 중...' : '파티명 찾기'}
+                    {isLoading ? '로딩 중...' : '사용자명 찾기'}
                   </Button>
                 </div>
               </form>

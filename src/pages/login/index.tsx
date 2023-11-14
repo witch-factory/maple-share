@@ -110,14 +110,14 @@ function LoginPage() {
               <GoogleLoginButton />
               <KakaoLoginButton />
 
-              <Separator text='아이디/비밀번호 찾기' />
+              <Separator text='사용자명/비밀번호 찾기' />
               <div className='w-full flex flex-row space-x-4'>
                 <Button className='w-full text-white p-0' type='button'>
                   <Link
                     className='flex w-full h-full text-sm no-underline justify-center items-center'
                     to='/id-inquiry'
                   >
-                    파티명 찾기
+                    사용자명 찾기
                   </Link>
                 </Button>
                 <Button className='w-full text-white p-0' type='button'>
