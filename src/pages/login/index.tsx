@@ -41,6 +41,7 @@ function LoginPage() {
       .then(res => {
         setIsLoading(false);
         if (res.userName === formInfo.userName) {
+          localStorage.setItem('userName', res.userName);
           navigate('/');
         }
       });
