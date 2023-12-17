@@ -98,3 +98,16 @@ export type Party = {
   // 수수료
   commission: 3 | 5;
 };
+
+export type PartyDetail={
+  // 파티명
+  partyName: string;
+  // 소속된 사용자들
+  members: PartyUser[];
+  // 그룹장 ID
+  ownerName: string;
+  // 파티가 습득한 아이템 정보
+  items?: BossItem;
+  // 수수료
+  commission: 3 | 5;
+};

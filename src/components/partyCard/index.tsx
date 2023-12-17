@@ -8,12 +8,12 @@ import { Party } from '@/types';
 function PartyCard({ party }: { party: Party }) {
   return (
     <Card className='shadow-lg'>
-      <CardHeader>
+      <CardHeader className='p-2'>
         <CardTitle className='text-xl font-semibold'>
           {party.partyName}
         </CardTitle>
       </CardHeader>
-      <CardContent className='space-y-4'>
+      <CardContent className='p-2'>
         {party.members.map(member => (
           <Badge key={member.userName}>{member.userName}</Badge>
         ))}
