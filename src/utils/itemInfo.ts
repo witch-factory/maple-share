@@ -107,7 +107,7 @@ export const ItemNameMap = {
 
 export type ItemName= keyof typeof ItemNameMap;
 
-export const ItemImages: Record<ItemName, string> = {
+export const ItemImageMap: Record<ItemName, string> = {
   // 익셉셔널
   악조: nightmare,
   모듈: gravity,

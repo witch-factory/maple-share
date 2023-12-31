@@ -1,4 +1,3 @@
-import AbsolArmor from '@/assets/icons/equipment/absol_armor.png';
 import PageTemplate from '@/components/pageTemplate';
 import PartyCard from '@/components/partyCard';
 import {
@@ -9,6 +8,7 @@ import {
 } from '@/components/ui/tabs';
 import { Item, Party } from '@/types';
 import { formatMoney } from '@/utils/formatMoney';
+import { ItemImageMap } from '@/utils/itemInfo';
 
 const DUMMY_PARTY: Party[] = [
   {
@@ -16,9 +16,17 @@ const DUMMY_PARTY: Party[] = [
     members: [{ userName: '마녀', money: 1234567890 }, { userName: '칸휘', money: 1000000000, proportion: 30 }, { userName: '강의', money: 10000000 }],
     ownerName: '마녀',
     commission: 3,
-    items: [{
-      name: '앱솔방어구', price: 10000000, count: 3, image: AbsolArmor,
-    }],
+    items: [
+      {
+        name: '앱솔방어구', price: 10000000, count: 3, image: ItemImageMap['앱솔방어구'],
+      },
+      {
+        name: '앱솔무기', price: 10000000, count: 3, image: ItemImageMap['앱솔무기'],
+      },
+      {
+        name: '태정', price: 10000000, count: 3, image: ItemImageMap['태정'],
+      },
+    ],
   },
   {
     partyName: '메이플',
@@ -78,8 +86,11 @@ function PartyPage({ party }: { party: Party }) {
             </Card>
           ))}
         </div>
+        <h2>아이템</h2>
         <div className='flex flex-col gap-2'>
-          <ItemCard name='앱솔방어구' price={10000000} count={3} image={AbsolArmor} />
+          {party.items.map(item => (
+            <ItemCard {...item} />
+          ))}
         </div>
       </CardContent>
     </Card>
