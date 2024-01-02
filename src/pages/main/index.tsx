@@ -1,14 +1,15 @@
+import ItemCard from '@/components/itemCard';
 import PageTemplate from '@/components/pageTemplate';
 import PartyCard from '@/components/partyCard';
+import PartyMemberCard from '@/components/partyMemberCard';
 import {
   Card, CardContent, CardHeader, CardTitle,
 } from '@/components/ui/card';
 import {
   Tabs, TabsContent, TabsList, TabsTrigger,
 } from '@/components/ui/tabs';
-import { Item, Party } from '@/types';
-import { formatMoney } from '@/utils/formatMoney';
-import { ItemImageMap, ItemNameMap } from '@/utils/itemInfo';
+import { Party } from '@/types';
+import { itemImageMap } from '@/utils/itemInfo';
 
 const DUMMY_PARTY: Party[] = [
   {
@@ -18,13 +19,13 @@ const DUMMY_PARTY: Party[] = [
     commission: 3,
     items: [
       {
-        name: '앱솔방어구', price: 10000000, count: 3, image: ItemImageMap['앱솔방어구'],
+        name: '앱솔방어구', price: 10000000, count: 3, image: itemImageMap['앱솔방어구'],
       },
       {
-        name: '앱솔무기', price: 10000000, count: 3, image: ItemImageMap['앱솔무기'],
+        name: '앱솔무기', price: 10000000, count: 3, image: itemImageMap['앱솔무기'],
       },
       {
-        name: '태정', price: 10000000, count: 3, image: ItemImageMap['태정'],
+        name: '태정', price: 10000000, count: 3, image: itemImageMap['태정'],
       },
     ],
   },
@@ -37,57 +38,22 @@ const DUMMY_PARTY: Party[] = [
   },
 ];
 
-function ItemCard(props: Item) {
-  const {
-    name, price, count, image,
-  } = props;
-  return (
-    <Card className='group p-4 flex flex-col items-center'>
-      <div className='w-10 h-10'>
-        <img src={image} alt={name} />
-      </div>
-      <h2 className='text-lg font-bold block group-hover:hidden'>{name}</h2>
-      <h2 className='text-lg font-bold hidden group-hover:block'>{ItemNameMap[name]}</h2>
-      <p>{`${formatMoney(price)} 메소`}</p>
-      <p>{`${count}개`}</p>
-    </Card>
-  );
-}
-
 function PartyPage({ party }: { party: Party }) {
   return (
-    <Card className='shadow-lg w-full h-full mr-4'>
+    <Card className='shadow-lg w-full h-full mr-4 p-2 md:p-4'>
       <CardHeader className='p-2'>
-        <CardTitle className='text-xl font-semibold'>
+        <CardTitle className='text-3xl font-semibold'>
           {`${party.partyName} 파티 분배금 내역`}
         </CardTitle>
       </CardHeader>
       <CardContent className='space-y-4 p-2'>
-        <h2>파티원</h2>
-        <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4 my-0 '>
+        <h2 className='text-2xl font-semibold'>파티원</h2>
+        <div className='grid gap-2 md:grid-cols-2 lg:grid-cols-4 my-0 '>
           {party.members.map(member => (
-            <Card>
-              <CardHeader>
-                <CardTitle className='text-xl font-semibold'>
-                  {member.userName}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className='space-y-4'>
-                <p>
-                  분배금
-                  {' '}
-                  {formatMoney(member.money)}
-                </p>
-                {member.proportion && (
-                  <p>
-                    {`분배 비율 ${member.proportion}%`}
-                  </p>
-                )}
-              </CardContent>
-            </Card>
+            <PartyMemberCard key={member.userName} {...member} />
           ))}
         </div>
-        <h2>아이템</h2>
+        <h2 className='text-2xl font-semibold'>아이템</h2>
         <div className='flex flex-row gap-2'>
           {party.items.map(item => (
             <ItemCard {...item} />

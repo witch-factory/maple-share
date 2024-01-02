@@ -45,7 +45,7 @@ import eternalFlame2 from '@/assets/icons/misc/eternal_flame2.png';
 import eternalFlame3 from '@/assets/icons/misc/eternal_flame3.png';
 import stone from '@/assets/icons/misc/stone.webp';
 
-export const ItemNameMap = {
+export const itemNameMap = {
   // 익셉셔널
   악조: '악몽의 조각',
   모듈: '그라비티 모듈',
@@ -105,9 +105,9 @@ export const ItemNameMap = {
   결정석: '보스 결정석',
 } as const;
 
-export type ItemName= keyof typeof ItemNameMap;
+export type ItemName= keyof typeof itemNameMap;
 
-export const ItemImageMap: Record<ItemName, string> = {
+export const itemImageMap: Record<ItemName, string> = {
   // 익셉셔널
   악조: nightmare,
   모듈: gravity,
