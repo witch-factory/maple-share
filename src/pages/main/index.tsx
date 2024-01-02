@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/tabs';
 import { Item, Party } from '@/types';
 import { formatMoney } from '@/utils/formatMoney';
-import { ItemImageMap } from '@/utils/itemInfo';
+import { ItemImageMap, ItemNameMap } from '@/utils/itemInfo';
 
 const DUMMY_PARTY: Party[] = [
   {
@@ -42,14 +42,15 @@ function ItemCard(props: Item) {
     name, price, count, image,
   } = props;
   return (
-    <section>
+    <Card className='group p-4 flex flex-col items-center'>
       <div className='w-10 h-10'>
         <img src={image} alt={name} />
       </div>
-      <h2>{name}</h2>
-      <p>{price}</p>
+      <h2 className='text-lg font-bold block group-hover:hidden'>{name}</h2>
+      <h2 className='text-lg font-bold hidden group-hover:block'>{ItemNameMap[name]}</h2>
+      <p>{`${formatMoney(price)} 메소`}</p>
       <p>{`${count}개`}</p>
-    </section>
+    </Card>
   );
 }
 
@@ -87,7 +88,7 @@ function PartyPage({ party }: { party: Party }) {
           ))}
         </div>
         <h2>아이템</h2>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-row gap-2'>
           {party.items.map(item => (
             <ItemCard {...item} />
           ))}
@@ -104,13 +105,13 @@ function MainPage() {
       <Tabs defaultValue={DUMMY_PARTY[0].partyName} className='w-full h-full flex flex-row'>
         <TabsList className='flex flex-col justify-start h-full'>
           {DUMMY_PARTY.map(party => (
-            <TabsTrigger value={party.partyName}>
+            <TabsTrigger key={party.partyName} value={party.partyName}>
               <PartyCard party={party} />
             </TabsTrigger>
           ))}
         </TabsList>
         {DUMMY_PARTY.map(party => (
-          <TabsContent value={party.partyName} className='w-full m-0'>
+          <TabsContent key={party.partyName} value={party.partyName} className='w-full m-0'>
             <PartyPage party={party} />
           </TabsContent>
         ))}
