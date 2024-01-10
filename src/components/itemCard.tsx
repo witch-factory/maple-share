@@ -14,7 +14,7 @@ function ItemCard(props: Item) {
       </div>
       <h2 className='text-lg font-bold block group-hover:hidden'>{name}</h2>
       <h2 className='text-lg font-bold hidden group-hover:block'>{itemNameMap[name]}</h2>
-      <p>{`${formatMoney(price)} 메소`}</p>
+      <p>{`${formatMoney(price)}`}</p>
       <p>{`${count}개`}</p>
     </Card>
   );

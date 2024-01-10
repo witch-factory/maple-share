@@ -1,3 +1,4 @@
+import { Button } from './ui/button';
 import {
   Card, CardHeader, CardTitle, CardContent,
 } from './ui/card';
@@ -7,11 +8,18 @@ import { formatMoney } from '@/utils/formatMoney';
 
 function PartyMemberCard(props: PartyUser) {
   const { userName, money, proportion } = props;
+
+  const moneyToClipboard = async () => {
+    await navigator.clipboard.writeText(money.toString());
+  };
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle className='text-xl font-semibold'>
-          {userName}
+        <CardTitle className='text-xl font-semibold flex flex-row justify-between'>
+          <h3>{userName}</h3>
+          {/* 금액 복사 기능 TODO */}
+          <Button onClick={moneyToClipboard} className='hidden sm:block'>금액 복사</Button>
         </CardTitle>
       </CardHeader>
       <CardContent className='space-y-4'>

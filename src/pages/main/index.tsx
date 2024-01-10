@@ -2,6 +2,7 @@ import ItemCard from '@/components/itemCard';
 import PageTemplate from '@/components/pageTemplate';
 import PartyCard from '@/components/partyCard';
 import PartyMemberCard from '@/components/partyMemberCard';
+import { Button } from '@/components/ui/button';
 import {
   Card, CardContent, CardHeader, CardTitle,
 } from '@/components/ui/card';
@@ -40,11 +41,12 @@ const DUMMY_PARTY: Party[] = [
 
 function PartyPage({ party }: { party: Party }) {
   return (
-    <Card className='shadow-lg w-full h-full mr-4 p-2 md:p-4 bg-zinc-800 text-white'>
-      <CardHeader className='p-2'>
+    <Card className='shadow-lg w-full h-full mr-4 p-2 md:p-4 bg-zinc-800 text-white border-none'>
+      <CardHeader className='p-2 flex flex-row justify-between items-center'>
         <CardTitle className='text-3xl font-semibold'>
           {`${party.partyName} 파티 분배금 내역`}
         </CardTitle>
+        <Button className='h-full bg-zinc-200 text-zinc-800 hover:bg-zinc-400'>변경사항 반영</Button>
       </CardHeader>
       <CardContent className='space-y-4 p-2'>
         <h2 className='text-2xl font-semibold'>파티원</h2>

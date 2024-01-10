@@ -5,7 +5,7 @@ import icon from '@/assets/icons/icon.png';
 function Header() {
   return (
     <header className='sticky top-0 z-40 w-full border-b bg-background'>
-      <div className='container flex max-w-5xl h-12 items-center space-x-4 sm:justify-between sm:space-x-0'>
+      <div className='px-8 mx-auto flex max-w-5xl h-12 items-center space-x-4 sm:justify-between sm:space-x-0'>
         <Link to='/' className='flex flex-row items-center gap-2 sm:gap-3'>
           <div className='w-8 h-8'>
             <img src={icon} alt='메소 아이콘' />
