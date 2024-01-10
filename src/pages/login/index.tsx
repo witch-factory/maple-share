@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import CardBox from '@/components/cardBox';
+import GoogleLoginButton from '@/components/googleLoginButton';
+import KakaoLoginButton from '@/components/kakaoLoginButton';
 import LabelledInput from '@/components/labelledInput';
 import PageTemplate from '@/components/pageTemplate';
 import Separator from '@/components/separator';
-import GoogleLoginButton from '@/components/socialLoginButton/google';
-import KakaoLoginButton from '@/components/socialLoginButton/kakao';
 import { Button } from '@/components/ui/button';
 import {
   Card,

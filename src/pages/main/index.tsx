@@ -56,7 +56,7 @@ function PartyPage({ party }: { party: Party }) {
         <h2 className='text-2xl font-semibold'>아이템</h2>
         <div className='flex flex-row gap-2'>
           {party.items.map(item => (
-            <ItemCard {...item} />
+            <ItemCard key={item.name} {...item} />
           ))}
         </div>
       </CardContent>

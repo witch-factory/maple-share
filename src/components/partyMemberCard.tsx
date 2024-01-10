@@ -1,6 +1,6 @@
 import {
   Card, CardHeader, CardTitle, CardContent,
-} from '../ui/card';
+} from './ui/card';
 
 import { PartyUser } from '@/types';
 import { formatMoney } from '@/utils/formatMoney';

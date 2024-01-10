@@ -1,7 +1,7 @@
-import { Badge } from '../ui/badge';
+import { Badge } from './ui/badge';
 import {
   Card, CardHeader, CardTitle, CardContent,
-} from '../ui/card';
+} from './ui/card';
 
 import { Party } from '@/types';
 

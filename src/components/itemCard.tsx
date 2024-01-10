@@ -1,5 +1,4 @@
-import { Card } from '../ui/card';
-
+import { Card } from '@/components/ui/card';
 import { Item } from '@/types';
 import { formatMoney } from '@/utils/formatMoney';
 import { itemNameMap } from '@/utils/itemInfo';
