@@ -40,7 +40,7 @@ const DUMMY_PARTY: Party[] = [
 
 function PartyPage({ party }: { party: Party }) {
   return (
-    <Card className='shadow-lg w-full h-full mr-4 p-2 md:p-4'>
+    <Card className='shadow-lg w-full h-full mr-4 p-2 md:p-4 bg-zinc-800 text-white'>
       <CardHeader className='p-2'>
         <CardTitle className='text-3xl font-semibold'>
           {`${party.partyName} 파티 분배금 내역`}
@@ -67,7 +67,6 @@ function PartyPage({ party }: { party: Party }) {
 function MainPage() {
   return (
     <PageTemplate>
-      <h1 className='text-5xl font-bold text-white'>파티 관리 페이지</h1>
       <Tabs defaultValue={DUMMY_PARTY[0].partyName} className='w-full h-full flex flex-row'>
         <TabsList className='flex flex-col justify-start h-full'>
           {DUMMY_PARTY.map(party => (
